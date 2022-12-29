@@ -1,12 +1,64 @@
 var quiz = document.getElementById("quiz");
-
+var questions = [
+ {//Question 2
+    title: 'How much money is enough money for you to begin living with Passion?'
+    answers: [
+        {
+            answer: '$50k Salary'
+            correct: false
+        }, 
+        {
+            answer: '$100k Salary'
+            correct: false
+        }, 
+        {
+            answer: '$1m Salary'
+            correct: true
+        } 
+    ]
+ },
+ {//Question 2
+    title: 'What kind of Mindset do you wish to have?'
+    answers: [
+        {
+            answer: 'Openminded'
+            correct: false
+        }, 
+        {
+            answer: 'ClosedMinded'
+            correct: false
+        }, 
+        {
+            answer: 'Presently Grounded'
+            correct: true
+        } 
+    ]
+ }, 
+ {
+    title: 'Whats your defintion of Success?'
+    answers: [
+        {
+            answer: 'Money'
+            correct: false
+        }, 
+        {
+            answer: 'Fame'
+            correct: false
+        }, 
+        {
+            answer: 'Goals Achieved'
+            correct: true
+        } 
+    ]
+ } 
+]
 //this function is for the beginning page which contains; html for quizname and startbutton 
 function homePage () {
-    quiz.innerHTML = `
+    quiz.innerHTML = /*html*/`
         <p>
             My Successful Quiz
-         </p>
-         <button id="startQuiz"> Quiz your Success--> Click Here! </button>
+        </p>
+        <button id="startQuiz"> Quiz your Success--> Click Here! </button>
     `
 //id button on the homePage listens for a click and than takes you to the questionPage
 document
@@ -14,62 +66,23 @@ document
 .addEventListener(
     'click', 
     function() {
-        questionPage()
+        questionPage(question)
     }
   )
 }
 
-function questionPage() {
-quiz.innerHTML = `
+
+function questionPage(question) {
+quiz.innerHTML = /*html*/`
  <p>
-            Q1: Which Mindset do you have?
- </p>
-    <ul>
-        <li><button>  OpenMinded Option </button></li>
-    </ul>
-    <ul>
-        <li><button>  ClosedMinded Option </button></li>
-    </ul>
-    <ul>
-        <li><button>  Just Present Option </button></li>
-    </ul>
-<p>
-            Q2: Which Car do you Want?
+    ${question.title}
 </p>
     <ul>
-        <li><button>  Option 5</button></li>
+        <li><button> ${question.answers[0].answer} </button></li>
+        <li><button> ${question.answers[1].answer} </button></li>
+        <li><button> ${question.answers[2].answer} </button></li>
     </ul>
-    <ul>
-        <li><button>  Option 4 </button></li>
-    </ul>
-    <ul>
-        <li><button>  Option 3 </button></li>
-    </ul>
-<p>
-            Q3: Which House do you want?
-</p>
-    <ul>
-        <li><button>   Option1 </button></li>
-    </ul>
-    <ul>
-        <li><button>   Option2 </button></li>
-    </ul>
-    <ul>
-        <li><button>   Option3 </button></li>
-    </ul>
-<p>
-            Q1: What kind of work do you want to do?
-</p>
-    <ul>
-        <li><button>   Option1 </button></li>
-    </ul>
-    <ul>
-        <li><button>   Option2 </button></li>
-    </ul>
-    <ul>
-        <li><button>   Option3 </button></li>
-    </ul>
-    `
+  `
 }
-console.log(homePage)
+
 homePage()
